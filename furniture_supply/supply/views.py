@@ -105,7 +105,6 @@ def supplier_create(request):
     return render(request, 'supply/supplier_form.html', {'form': form})
 
 
-@admin_required
 def order_report(request):
     orders = SupplyOrder.objects.all().order_by('-order_date')
     wb = openpyxl.Workbook()
@@ -133,7 +132,6 @@ def order_report(request):
     return response
 
 
-@admin_required
 def product_report(request):
     products = Product.objects.all()
     wb = openpyxl.Workbook()
@@ -160,7 +158,6 @@ def product_report(request):
     return response
 
 
-@admin_required
 def supplier_report(request):
     suppliers = Supplier.objects.all()
     wb = openpyxl.Workbook()
